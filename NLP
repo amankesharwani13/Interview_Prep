@@ -1,0 +1,375 @@
+⭐ 1. What is NLP? (Simple)
+
+NLP = Making computers understand and process human language.
+
+Examples:
+
+ChatGPT
+
+Google search
+
+Voice assistants
+
+Spam detection
+
+⭐ 2. What are the main tasks of NLP?
+
+Text Classification
+
+Sentiment Analysis
+
+Named Entity Recognition (NER)
+
+Machine Translation
+
+Text Summarization
+
+Question Answering
+
+Text Generation
+
+Speech-to-text / Text-to-speech
+
+⭐ 3. What is Tokenization? (Very simple)
+
+Breaking text into smaller pieces called tokens.
+
+Example:
+"Machine Learning" → ["Machine", "Learning"]
+
+In modern NLP: tokens = subwords.
+
+⭐ 4. What is Lemmatization?
+
+Convert a word to its base form with meaning.
+
+Example:
+"running" → "run"
+"better" → "good"
+
+⭐ 5. What is Stemming?
+
+Cutting the word to root form (not always meaningful).
+"running" → "run"
+"studies" → "studi"
+
+⭐ 6. Lemmatization vs Stemming
+Lemmatization	Stemming
+Meaningful base form	Rough cut
+Grammar-based	Rule-based
+Slower	Faster
+⭐ 7. What is Stopword Removal?
+
+Removing common words:
+"the", "is", "are", "a", "an", "in"
+
+They don’t add meaning.
+
+⭐ 8. What is Bag-of-Words (BoW)?
+
+Represent text as count of words.
+
+Example:
+"I love AI"
+"AI loves me"
+
+BoW vector = [I:1, love:1, AI:1, loves:1, me:1]
+
+⭐ 9. What is TF–IDF?
+
+Weights words based on importance:
+
+Frequent in a document = high score
+
+Common everywhere = low score
+
+Used for simple NLP models.
+
+⭐ 10. What is Word Embedding? (Simple)
+
+Converting words into meaningful numeric vectors so models understand similarity.
+
+Example:
+king – man + woman = queen
+
+Popular embeddings:
+
+Word2Vec
+
+GloVe
+
+FastText
+
+BERT/GPT embeddings
+
+⭐ 11. What is the difference between Word2Vec and TF-IDF?
+
+TF–IDF → word importance but no meaning
+
+Word2Vec → captures context and meaning
+
+⭐ 12. What is Word2Vec?
+
+Learns meaning of words based on context.
+Two methods:
+
+CBOW
+
+Skip-Gram
+
+⭐ 13. What is OOV (Out-of-Vocabulary)?
+
+When a word is not in the vocabulary.
+
+Modern models use subword tokenization to fix it.
+
+⭐ 14. What are N-grams?
+
+Sequence of N words.
+
+Examples:
+
+Unigram: "I"
+
+Bigram: "I am"
+
+Trigram: "I am happy"
+
+⭐ 15. What is Sequence Modeling?
+
+Working with ordered data like sentences.
+Used in:
+
+RNN
+
+LSTM
+
+GRU
+
+Transformers
+
+⭐ 16. What is an RNN?
+
+Recurrent Neural Network
+Reads text one word at a time.
+Has “memory”.
+
+⭐ 17. What is LSTM?
+
+Improved RNN that handles long sentences.
+Prevents vanishing gradient.
+
+⭐ 18. What is GRU?
+
+Simpler version of LSTM with similar performance.
+
+⭐ 19. What is Attention? (Simple)
+
+Model focuses on important words in a sentence.
+
+Example:
+In “The cat sat on the mat”, for “cat”, important words may be “sat”, “mat”.
+
+⭐ 20. What is Self-Attention?
+
+The sentence pays attention to itself.
+
+Used in Transformers.
+
+⭐ 21. What is Transformer? (Simple)
+
+NLP architecture that uses self-attention, not RNNs.
+It is the foundation of BERT, GPT, Llama.
+
+⭐ 22. Encoder vs Decoder in Transformer
+
+Encoder → understand text (used in BERT)
+
+Decoder → generate text (used in GPT)
+
+⭐ 23. What is BERT?
+
+Encoder-only model for:
+
+Classification
+
+NER
+
+QA
+
+Embeddings
+
+Not good for text generation.
+
+⭐ 24. What is GPT?
+
+Decoder-only model for generation:
+
+ChatGPT
+
+Story writing
+
+Code generation
+
+⭐ 25. What is Fine-Tuning?
+
+Training a pre-trained model on your dataset.
+
+⭐ 26. What is Zero-shot Learning?
+
+Model answers tasks it was not trained on.
+
+Example:
+ChatGPT answering a new topic without training.
+
+⭐ 27. What is Few-shot Learning?
+
+Model learns from a few examples.
+
+⭐ 28. What is Named Entity Recognition (NER)?
+
+Finding names in text:
+
+Person
+
+Organization
+
+Place
+
+Date
+
+⭐ 29. What is Sentiment Analysis?
+
+Detect emotion (Positive/Negative/Neutral).
+
+⭐ 30. What is Text Classification?
+
+Assigning category to text.
+Examples: spam/not spam.
+
+⭐ 31. What is Text Summarization?
+
+Shortening text while keeping important meaning.
+Types:
+
+Extractive
+
+Abstractive
+
+⭐ 32. What is Machine Translation?
+
+Translating from one language to another.
+Example: English → Hindi
+
+⭐ 33. What is Perplexity?
+
+How confused the model is.
+Lower → Better.
+
+⭐ 34. What is BLEU Score?
+
+Used to evaluate machine translation quality.
+
+⭐ 35. What is ROUGE Score?
+
+Used in summarization.
+
+⭐ 36. What is Cosine Similarity? (Simple)
+
+Measures how similar two texts are.
+Used in search and embeddings.
+
+⭐ 37. What is Embedding Dimension?
+
+Length of vector representing text.
+Example: 768-dimensional BERT embedding.
+
+⭐ 38. What is Padding?
+
+Adding zeros to make all sequences equal length.
+
+⭐ 39. What is Truncation?
+
+Cutting long text to max length.
+
+⭐ 40. What is Beam Search?
+
+Smart decoding to find best output sequence.
+
+⭐ 41. What is Greedy Search?
+
+Pick the best word at each step.
+Simple but not always best.
+
+⭐ 42. What is Temperature in text generation?
+
+Controls creativity.
+
+Low = predictable
+
+High = creative
+
+⭐ 43. What is NER?
+
+Finding real-world entities in text.
+
+Example:
+"Virat Kohli plays for India"
+Entities:
+
+Person: Virat Kohli
+
+Country: India
+
+⭐ 44. What is WordPiece Tokenization?
+
+Breaks rare words into smaller pieces.
+Example:
+"unbelievable" → ["un", "believe", "##able"]
+
+⭐ 45. What is Sentence Embedding?
+
+Vector that represents whole sentence meaning.
+
+⭐ 46. What is Attention Mask?
+
+Tells model which tokens to focus on and which to ignore (padding).
+
+⭐ 47. What are Pretrained Models in NLP?
+
+Models trained on huge text before fine-tuning.
+
+Examples:
+
+BERT
+
+GPT
+
+RoBERTa
+
+DistilBERT
+
+⭐ 48. What is RAG (Retrieval-Augmented Generation)?
+
+LLM + Search.
+Model retrieves documents then generates answer.
+
+⭐ 49. What is Semantic Search?
+
+Search based on meaning, not keywords.
+
+⭐ 50. Real-world applications of NLP
+
+Chatbots
+
+Resume screening
+
+Voice assistants
+
+Spam filtering
+
+Language translation
+
+Emotion detection
+
+Document search
