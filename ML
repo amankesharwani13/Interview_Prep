@@ -1,0 +1,325 @@
+1. What is Machine Learning?
+
+Machine Learning is when a computer learns from data and makes predictions without being explicitly programmed.
+
+⭐ 2. Types of Machine Learning?
+1) Supervised Learning
+
+Model learns using labeled data (input + correct output).
+Examples:
+
+Spam detection
+
+Price prediction
+
+2) Unsupervised Learning
+
+Model learns patterns from unlabeled data.
+Examples:
+
+Clustering customers
+
+Grouping similar items
+
+3) Reinforcement Learning
+
+Model learns by trial and error with rewards.
+Examples:
+
+Game-playing AI
+
+Self-driving cars
+
+⭐ 3. What is Overfitting?
+
+Model learns too much, including noise, and performs well on training data but bad on new data.
+
+Simple example:
+Memorizing answers instead of understanding them.
+
+⭐ 4. What is Underfitting?
+
+Model is too simple and cannot learn patterns.
+
+⭐ 5. How to avoid Overfitting?
+
+More data
+
+Regularization (L1, L2)
+
+Dropout (for deep learning)
+
+Early stopping
+
+Cross-validation
+
+⭐ 6. What is Bias and Variance?
+
+Bias: Error from wrong assumptions (underfitting).
+
+Variance: Error from too much sensitivity (overfitting).
+
+Goal: Balance both → Bias-Variance Tradeoff.
+
+⭐ 7. What is Feature Engineering? (Simple)
+
+Improving raw data into useful features so the model learns better.
+
+Examples:
+
+Extracting date → day/month/year
+
+Combining columns
+
+Encoding text or categories
+
+⭐ 8. What is EDA (Exploratory Data Analysis)?
+
+Understanding and exploring data using:
+
+Visualization
+
+Statistics
+
+Outlier detection
+
+Missing values check
+
+⭐ 9. What is Normalization and Standardization?
+
+Normalization: Scale data between 0 and 1
+
+Standardization: Scale data to mean 0 and std 1
+
+Used for distance-based models like KNN.
+
+⭐ 10. Difference: Classification vs Regression
+
+Classification: Predict category
+Example: spam or not spam
+
+Regression: Predict number
+Example: house price
+
+⭐ 11. What is Logistic Regression?
+
+A classification algorithm that predicts probability between 0 and 1.
+
+⭐ 12. What is Linear Regression?
+
+A model that predicts numeric values using a line.
+
+⭐ 13. What is KNN? (K-Nearest Neighbors)
+
+Predicts output by looking at the closest K data points.
+
+⭐ 14. What is Decision Tree?
+
+A model that splits data using questions (yes/no) to make predictions.
+
+⭐ 15. What is Random Forest?
+
+Many decision trees combined.
+Reduces overfitting.
+
+⭐ 16. What is SVM?
+
+Support Vector Machine finds the best boundary that separates classes.
+
+⭐ 17. What is Clustering?
+
+Grouping similar items together.
+(Example: grouping customers)
+
+⭐ 18. What is K-Means?
+
+A clustering algorithm that groups data into K clusters.
+
+⭐ 19. What is PCA (Principal Component Analysis)?
+
+Reduces number of features while keeping important information.
+
+⭐ 20. What is Gradient Descent?
+
+Algorithm used to minimize loss (error).
+Model adjusts weights step-by-step.
+
+⭐ 21. What is Learning Rate?
+
+How big each step is in gradient descent.
+
+⭐ 22. What is Loss Function?
+
+Measures how wrong the model is.
+Examples:
+
+MSE (regression)
+
+Cross-entropy (classification)
+
+⭐ 23. Evaluation Metrics
+For classification:
+
+Accuracy
+
+Precision
+
+Recall
+
+F1 Score
+
+Confusion Matrix
+
+For regression:
+
+MAE
+
+MSE
+
+RMSE
+
+R² Score
+
+⭐ 24. What is Precision and Recall (Simple)?
+
+Precision: Out of predicted positives, how many were correct.
+
+Recall: Out of actual positives, how many we predicted correctly.
+
+⭐ 25. What is F1 Score?
+
+Harmonic mean of Precision & Recall.
+Used when data is imbalanced.
+
+⭐ 26. How do you handle missing values?
+
+Drop rows
+
+Fill with mean/median/mode
+
+Model-based imputation
+
+⭐ 27. What is Encoding (One-Hot, Label Encoding)?
+
+Converting category text into numbers so model can understand.
+
+⭐ 28. What is Regularization?
+
+Technique to reduce overfitting by adding penalty.
+
+L1 (Lasso)
+
+L2 (Ridge)
+
+⭐ 29. What is Cross Validation?
+
+Split data into many folds and test each fold.
+More reliable than single train-test split.
+
+⭐ 30. What does Train-Test Split do?
+
+Helps measure model performance on unseen data.
+
+⭐ 31. What is Confusion Matrix?
+
+A table that shows:
+TP, FP, FN, TN
+Used to evaluate classification.
+
+⭐ 32. What is Outlier?
+
+A data point that is very different from others.
+Example: salary 10, 20, 25… and 5,00,000.
+
+⭐ 33. What is Correlation?
+
+Relationship between variables.
+
+⭐ 34. What is Feature Selection?
+
+Choosing only important features.
+
+⭐ 35. What is Hyperparameter Tuning?
+
+Finding best settings for model such as:
+
+K in KNN
+
+Max depth in tree
+
+Learning rate
+
+⭐ 36. What is Embedding in ML?
+
+Converting text or items into meaningful numbers (vectors).
+Used in NLP, RAG, search.
+
+⭐ 37. Difference between Machine Learning and Deep Learning?
+
+ML: Simple models like KNN, trees, SVM
+
+DL: Neural networks with many layers
+
+⭐ 38. What is a Neural Network?
+
+Nodes connected like the human brain; learns patterns.
+
+⭐ 39. What is an Epoch?
+
+One full loop of training over entire dataset.
+
+⭐ 40. What is Batch Size?
+
+Number of samples processed at once.
+
+⭐ 41. What is Activation Function?
+
+Gives non-linearity.
+Examples: ReLU, Sigmoid, Tanh.
+
+⭐ 42. What is Self-Attention? (Simple)
+
+Model looks at important words in a sentence.
+
+⭐ 43. What is Transformer? (Simple)
+
+A model architecture that uses self-attention.
+Used in BERT, GPT, Llama.
+
+⭐ 44. What is BERT?
+
+Transformer model for understanding text (encoder-based).
+
+⭐ 45. What is GPT?
+
+Transformer model for generating text (decoder-based).
+
+⭐ 46. What is Tokenization?
+
+Breaking text into small pieces (words/subwords).
+
+⭐ 47. What is Pipeline in ML?
+
+Series of steps from data cleaning → model training → evaluation.
+
+⭐ 48. What is R² Score?
+
+How much variance the model explains.
+Higher = better.
+
+⭐ 49. What is Multicollinearity?
+
+When two features are highly correlated.
+Causes issues in linear models.
+
+⭐ 50. What are Real-World ML Examples?
+
+Fraud detection
+
+Recommendation system
+
+Spam detection
+
+Face recognition
+
+Sentiment analysis
