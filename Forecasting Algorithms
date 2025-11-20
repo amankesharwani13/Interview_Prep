@@ -1,0 +1,142 @@
+⭐ What is Forecasting? (Simple Word)
+
+Forecasting means predicting future values based on past data.
+
+Example:
+Predicting next month's sales based on past sales.
+
+⭐ Types of Forecasting Algorithms (Explained Super Simple)
+1. Moving Average (MA)
+
+👉 Looks at the average of the last few values and uses it to predict the next one.
+👉 Works well when data is stable (no big ups & downs).
+
+Example:
+
+Sales for last 3 months:
+10, 12, 14
+
+3-Month Moving Average =
+(10 + 12 + 14) / 3 = 12
+
+So forecast for next month = 12
+
+2. Exponential Smoothing
+
+👉 Gives more importance to recent data than older data.
+👉 Useful when recent values matter more.
+
+Formula uses a smoothing factor α (0–1).
+
+Example:
+
+Previous forecast = 100
+Actual last value = 120
+α = 0.5
+
+New Forecast =
+0.5 × 120 + 0.5 × 100 = 110
+
+3. Holt’s Linear Trend Model
+
+👉 Useful when data has a trend (increasing or decreasing).
+👉 Adds 2 things:
+
+Level (current value)
+
+Trend (direction)
+
+Example:
+
+Sales increasing like:
+100, 120, 140…
+
+Holt’s model learns the upward trend and predicts higher values.
+
+4. Holt–Winters (Triple Exponential Smoothing)
+
+👉 Used when data has:
+
+Trend
+
+Seasonality (pattern repeats every year/month/week)
+
+Example:
+
+Ice cream sales:
+High in summer, low in winter.
+
+Holt-Winters captures this repeating pattern to forecast correctly.
+
+5. ARIMA (Most Popular Forecasting Model)
+
+👉 Best for time-series with patterns.
+👉 Uses:
+
+Past values (AR)
+
+Past errors (MA)
+
+Differencing (I) to remove trend
+
+Example:
+
+If sales data is like:
+
+100 → 120 → 150 → 180 → 210 → (clear trend)
+
+ARIMA can predict future values like 240, 270…
+
+6. SARIMA
+
+👉 ARIMA + Seasonality
+Use this when data repeats periodically.
+
+Example:
+
+Electricity usage
+Higher in summer → lower in winter → repeats every year
+
+SARIMA handles this pattern better than ARIMA.
+
+7. Prophet (by Facebook/Meta)
+
+👉 Easy-to-use ML model for forecasting
+👉 Handles:
+
+Trend
+
+Seasonality
+
+Holidays
+
+Missing values
+
+Example:
+
+Facebook uses it to predict user activity or ad revenue.
+
+Forecasting with Prophet is just:
+
+model = Prophet()
+model.fit(df)
+future = model.make_future_dataframe(periods=30)
+forecast = model.predict(future)
+
+8. LSTM (Deep Learning Model)
+
+👉 A neural network for sequence prediction
+👉 Best when data has long-term patterns
+👉 Works well for:
+
+Stock prices
+
+Weather
+
+Energy demand
+
+Example:
+
+It can learn very complex patterns like:
+
+"Stock goes up after 3 red days and 2 green days"
