@@ -1,0 +1,249 @@
+✅ TOP RAG INTERVIEW QUESTIONS — Explained in Simple Words
+1️⃣ What is RAG?
+
+RAG = Retrieval-Augmented Generation
+It means:
+
+👉 LLM + External Knowledge
+
+The model retrieves relevant documents and then generates better answers.
+
+2️⃣ Why do we use RAG?
+
+Because LLMs don't know everything.
+RAG helps in:
+
+✔ reducing hallucination
+✔ using private data
+✔ improving accuracy
+
+3️⃣ What are the main steps in RAG?
+
+Embedding text → into numbers
+
+Store embeddings → in vector DB
+
+Search relevant chunks
+
+LLM generates final answer using retrieved data
+
+4️⃣ What is Vector Database?
+
+A database that stores embeddings and allows similarity search.
+
+Examples: FAISS, Pinecone, Chroma, Weaviate.
+
+Simple:
+👉 “Google search inside your own data.”
+
+5️⃣ What are embeddings?
+
+Embeddings are numerical vectors representing meaning of text.
+
+Example:
+“Apple” (fruit) and “banana” → close in embedding space.
+
+6️⃣ What is chunking?
+
+Breaking big documents into small pieces.
+
+Why?
+LLM cannot take 200-page PDF in one go.
+
+7️⃣ What is vector search?
+
+Searching similar meaning instead of exact words.
+
+Example:
+Query: “How to recharge battery?”
+Match: “Steps to charge your device.”
+
+8️⃣ What are the components of a RAG system?
+
+Document loader
+
+Text splitter
+
+Embedding model
+
+Vector database
+
+Retriever
+
+LLM
+
+9️⃣ What is a retriever?
+
+It selects the most relevant chunks from the vector DB.
+
+Example:
+Top-3 similar chunks.
+
+1️⃣0️⃣ Difference between RAG and fine-tuning?
+RAG	Fine-tuning
+Adds external knowledge	Changes the model
+Cheap	Expensive
+No training needed	Training needed
+Flexible	Less flexible
+1️⃣1️⃣ When should you use RAG?
+
+Use RAG when you need:
+
+✔ private data
+✔ updated information
+✔ fast changes
+✔ cost-efficient solution
+
+1️⃣2️⃣ When NOT to use RAG?
+
+❌ Data is extremely structured
+❌ User queries require heavy reasoning
+❌ Data changes every second
+
+1️⃣3️⃣ What is Hybrid Search?
+
+Combination of:
+
+semantic search
+
+keyword search
+
+Helps when user needs exact keywords.
+
+1️⃣4️⃣ What is metadata filtering?
+
+Filtering search results based on tags.
+
+Example:
+Only show documents of 2024 or HR department.
+
+1️⃣5️⃣ What is re-ranking?
+
+After retrieving top chunks, a model re-orders them to pick the best ones.
+
+1️⃣6️⃣ What is context window?
+
+The maximum amount of text an LLM can take as input.
+
+RAG helps by reducing irrelevant text.
+
+1️⃣7️⃣ What is hallucination in LLM?
+
+When LLM makes up fake answers.
+RAG reduces this by giving real documents.
+
+1️⃣8️⃣ What is Retrieval Pipeline?
+
+All steps from query → retrieval → LLM answer.
+
+1️⃣9️⃣ What is multi-vector RAG?
+
+Using multiple embeddings per chunk:
+
+Title
+
+Paragraph
+
+Keywords
+
+Entities
+
+Better retrieval accuracy.
+
+2️⃣0️⃣ What is multi-modal RAG?
+
+RAG using:
+
+text
+
+images
+
+PDFs
+
+audio
+
+tables
+
+Example: Searching inside scanned PDFs.
+
+2️⃣1️⃣ What is query expansion?
+
+Automatically expanding user query.
+
+Query: "loan eligibility"
+Expanded: "loan rules", "home loan eligibility", "bank document requirements"
+
+2️⃣2️⃣ What is chunk overlap?
+
+Small overlapping text so context isn’t lost.
+
+2️⃣3️⃣ What is BM25 (traditional search)?
+
+A keyword-based retrieval algorithm.
+Useful for exact match queries.
+
+2️⃣4️⃣ RAG vs. Search Engine?
+
+Search engine → retrieves only
+
+RAG → retrieves + LLM generates answer
+
+2️⃣5️⃣ What is negative sampling in RAG training?
+
+Selecting irrelevant documents to improve retriever training.
+
+26️⃣ What are the challenges in RAG?
+
+Bad chunking
+
+Wrong embeddings
+
+Irrelevant retrieval
+
+Too much or too little context
+
+Slow search in huge DB
+
+27️⃣ How to evaluate RAG?
+
+Metrics:
+
+Retrieval precision
+
+Relevance score
+
+Answer correctness
+
+Context overlap
+
+28️⃣ What is LLM-as-a-Judge?
+
+Using an LLM to check if retrieved documents are accurate.
+
+29️⃣ How to optimize RAG?
+
+Better chunking
+
+Re-ranking
+
+Hybrid search
+
+Metadata filters
+
+Smaller & faster embeddings
+
+30️⃣ What is end-to-end RAG evaluation?
+
+Evaluate:
+
+Retrieval quality
+
+Answer quality
+
+Ground truth matching
+
+🎯 BONUS: 30-second interview reply
+
+You can say:
+
+“RAG is a method where an LLM retrieves relevant information from a vector database and uses it to generate an accurate answer. It reduces hallucinations and allows models to use private or updated data. A RAG pipeline includes chunking, embedding, storing in a vector DB, retrieving, and LLM generation.”
