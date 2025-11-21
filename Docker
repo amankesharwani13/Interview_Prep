@@ -1,0 +1,324 @@
+✅ How I Deploy an Assignment Using Docker, Rancher Desktop, WSL & Azure
+
+1️⃣ Develop the Project (Local Machine)
+I first complete my Python/Flask/FastAPI/Node project on my local machine.
+
+2️⃣ Install Required Tools
+I install:
+WSL → Linux environment inside Windows
+Rancher Desktop → provides the Docker engine (nerdctl)
+Docker CLI / Nerdctl → to build and run containers
+Azure CLI → to deploy my container
+
+3️⃣ Write a Dockerfile
+I create a Dockerfile inside the project folder.
+Example:
+FROM python:3.10-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+EXPOSE 5000
+CMD ["python", "app.py"]
+
+This tells Docker:
+which Python image to use
+install requirements
+run the app
+
+4️⃣ Build Docker Image (WSL Terminal)
+Inside WSL terminal:
+nerdctl build -t myapp:latest .
+
+This creates a docker image.
+
+5️⃣ Run the Docker Container Locally
+To check if it works:
+nerdctl run -p 5000:5000 myapp:latest
+
+Now I open browser and check:
+👉 http://localhost:5000
+This confirms the image works.
+
+6️⃣ Push the Image to Azure Container Registry (ACR)
+Step 6.1 – Login
+az login
+Step 6.2 – Login to ACR
+az acr login --name <my-acr-name>
+Step 6.3 – Tag the Image
+ACR images need a special tag:
+nerdctl tag myapp:latest <my-acr-name>.azurecr.io/myapp:latest
+Step 6.4 – Push the Image
+nerdctl push <my-acr-name>.azurecr.io/myapp:latest
+
+Now the image is stored on Azure.
+
+7️⃣ Create Azure Container App Environment
+az containerapp env create \
+  --name my-env \
+  --resource-group my-rg \
+  --location centralindia
+
+8️⃣ Deploy the Application on Azure Container Apps
+az containerapp create \
+  --name myapp \
+  --resource-group my-rg \
+  --environment my-env \
+  --image <my-acr-name>.azurecr.io/myapp:latest \
+  --ingress external \
+  --target-port 5000
+
+
+Azure assigns a public URL.
+This URL is the live deployment.
+
+9️⃣ Verify Deployment
+
+I open Azure Portal → go to Container Apps → copy the URL and test it.
+
+
+You can speak like this:
+
+“I develop the project locally, then I use WSL and Rancher Desktop to build a Docker image.
+I create a Dockerfile, build the image using nerdctl, and run it locally to test.
+After that, I tag the image and push it to Azure Container Registry.
+Then I create a Container App Environment in Azure and deploy the container from ACR.
+Azure gives me a public URL where my application runs.”
+
+
+
+✅ TOP Docker Interview Questions (Simple Answers)
+1️⃣ What is Docker?
+
+Simple:
+Docker is a tool that packages your application and all its dependencies into one small box called a container, so it runs the same everywhere.
+
+2️⃣ What is a Container?
+
+A small lightweight environment where your app runs.
+It contains only what your app needs → fast & portable.
+
+3️⃣ What is an Image?
+
+A template or blueprint used to create containers.
+Like a photo → container is a photocopy.
+
+4️⃣ What is a Dockerfile?
+
+A text file that tells Docker how to build an image.
+
+Example: install Python, copy files, run app.
+
+5️⃣ What are Docker Volumes?
+
+A way to store data outside of containers, so data is safe even if the container is deleted.
+
+6️⃣ What is Docker Compose?
+
+A tool that helps you run multiple containers together (e.g., app + database) using one YAML file.
+
+7️⃣ What is the difference: Image vs Container?
+
+Image → blueprint
+
+Container → running instance of that image
+
+8️⃣ What is Docker Hub?
+
+Online store for Docker images (public or private).
+
+9️⃣ How do you build a Docker image?
+docker build -t myapp .
+
+🔟 How do you run a Docker container?
+docker run -p 5000:5000 myapp
+
+1️⃣1️⃣ What is the purpose of EXPOSE in Dockerfile?
+
+Tells which port the container uses.
+
+1️⃣2️⃣ What is ENTRYPOINT vs CMD?
+
+ENTRYPOINT → main command
+
+CMD → default arguments
+Easy rule: ENTRYPOINT is fixed, CMD can change.
+
+1️⃣3️⃣ What is the difference: Docker vs Virtual Machine?
+
+Docker uses containers → lightweight, fast
+
+VM runs full OS → heavy, slow
+
+1️⃣4️⃣ What is Layering in Docker?
+
+Each instruction in Dockerfile creates a layer.
+These layers are cached → builds are faster.
+
+1️⃣5️⃣ What is Docker Registry?
+
+A storage where images are saved (Docker Hub, Azure ACR).
+
+1️⃣6️⃣ What is ACR (Azure Container Registry)?
+
+Azure’s private Docker image store.
+
+1️⃣7️⃣ How do you push an image to Docker Hub or ACR?
+docker push repo/image:tag
+
+1️⃣8️⃣ How do you check running containers?
+docker ps
+
+1️⃣9️⃣ How do you stop a container?
+docker stop <id>
+
+2️⃣0️⃣ What happens when a container stops?
+
+The application inside stops running.
+But image and data (volumes) remain.
+
+2️⃣1️⃣ What happens when you delete a container?
+
+Only that running copy gets deleted.
+Image stays.
+
+2️⃣2️⃣ What is the context in Docker build?
+
+The folder contents sent to Docker engine for building.
+
+2️⃣3️⃣ What is .dockerignore?
+
+File that tells Docker “ignore these files when building.”
+
+Example:
+.env, __pycache__, node_modules
+
+2️⃣4️⃣ What is multi-stage build?
+
+Use multiple FROM in Dockerfile to reduce final image size.
+
+2️⃣5️⃣ What is Port Mapping?
+
+Connecting container port to host port.
+
+Example:
+-p 5000:5000
+
+2️⃣6️⃣ How do you see logs of a container?
+docker logs <container_id>
+
+2️⃣7️⃣ What is the use of WORKDIR in Dockerfile?
+
+Sets the default working directory inside the container.
+
+2️⃣8️⃣ What is a base image?
+
+The starting image used in Dockerfile (e.g., python:3.10-slim).
+
+2️⃣9️⃣ What is tagging of an image?
+
+Giving version/name to an image.
+
+Example:
+myapp:v1
+
+3️⃣0️⃣ What is the difference: ADD vs COPY?
+
+COPY → simple file copy
+
+ADD → can download URLs or extract tar files
+Use COPY mostly (best practice).
+
+3️⃣1️⃣ How do you remove all containers?
+docker rm -f $(docker ps -aq)
+
+3️⃣2️⃣ How do you remove images?
+docker rmi <image>
+
+3️⃣3️⃣ What is Docker Network?
+
+Containers can communicate with each other inside a virtual network.
+
+3️⃣4️⃣ What is Bridge Network?
+
+Default network; containers can talk to each other.
+
+3️⃣5️⃣ What is Host Network?
+
+Container uses the host machine’s network directly.
+
+3️⃣6️⃣ What is bind mount?
+
+Mounting a folder from your machine into container.
+
+3️⃣7️⃣ How do you inspect a running container?
+docker inspect <id>
+
+3️⃣8️⃣ How do you exec into a container?
+docker exec -it <id> bash
+
+3️⃣9️⃣ Difference between Container Restart Policies?
+
+no → don’t restart
+
+always → restart always
+
+on-failure → restart only if crash
+
+4️⃣0️⃣ What is OCI?
+
+Open Container Initiative – standards for containers & images.
+
+4️⃣1️⃣ What is Rancher Desktop?
+
+A tool that gives Docker/nerdctl engine on Windows (alternative to Docker Desktop).
+
+4️⃣2️⃣ What is nerdctl?
+
+Docker-compatible CLI provided by Rancher Desktop.
+
+4️⃣3️⃣ How do you deploy Docker containers to Azure?
+
+Steps:
+
+Build Image
+
+Push to ACR
+
+Deploy using Azure Container Apps / Azure Kubernetes Service (AKS)
+
+4️⃣4️⃣ What is Image ID and Container ID?
+
+Unique identifiers for image or container.
+
+4️⃣5️⃣ Why do we use slim images?
+
+They are lightweight → faster & more secure.
+
+4️⃣6️⃣ What is ENV in Dockerfile?
+
+Sets environment variables.
+
+4️⃣7️⃣ What is HEALTHCHECK?
+
+Tells Docker how to check if the app inside container is healthy.
+
+4️⃣8️⃣ What is BuildKit?
+
+Modern backend for faster and parallel Docker builds.
+
+4️⃣9️⃣ What is the lifecycle of a container?
+
+Image → Create → Start → Run → Stop → Remove.
+
+5️⃣0️⃣ What kind of projects have you Dockerized?
+
+Always mention:
+
+Flask API
+
+Node API
+
+React + Backend
+
+ML model API
