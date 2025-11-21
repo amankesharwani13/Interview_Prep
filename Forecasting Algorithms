@@ -27,6 +27,8 @@ So forecast for next month = 12
 👉 Useful when recent values matter more.
 
 Formula uses a smoothing factor α (0–1).
+more alpha -> more weight on current observation.
+less alpha -> more weight on previous observation.
 
 Example:
 
@@ -37,7 +39,7 @@ Actual last value = 120
 New Forecast =
 0.5 × 120 + 0.5 × 100 = 110
 
-3. Holt’s Linear Trend Model
+3. Holt’s Linear Trend Model(Double exponential smoothing)
 
 👉 Useful when data has a trend (increasing or decreasing).
 👉 Adds 2 things:
@@ -100,6 +102,7 @@ Higher in summer → lower in winter → repeats every year
 SARIMA handles this pattern better than ARIMA.
 
 7. Prophet (by Facebook/Meta)
+Prophet is an open-source time series forecasting library created by Meta (formerly Facebook) for Python and R that is used to predict trends in time-series data
 
 👉 Easy-to-use ML model for forecasting
 👉 Handles:
@@ -140,3 +143,67 @@ Example:
 It can learn very complex patterns like:
 
 "Stock goes up after 3 red days and 2 green days"
+
+9. What is a Time Series?
+
+A set of data points collected over time (daily, monthly, yearly).
+
+Example:
+Daily temperature, monthly sales.
+
+10. What is Univariate Forecasting?
+
+Forecasting using only one variable (e.g., only past sales).
+
+11. What is Multivariate Forecasting?
+
+Forecasting using multiple variables (e.g., sales + ads + weather).
+
+12. Why do we do Differencing?
+
+To make time series stationary (remove trend).
+
+13. What is Forecast Horizon?
+
+How far into the future you want to predict.
+
+Example:
+Next 7 days → horizon = 7
+
+14. What metrics do you use to evaluate forecasting?
+
+MAE
+MSE
+RMSE
+MAPE
+
+15. What is Autocorrelation?
+
+When previous values influence future values.
+
+16. Why use Prophet?
+
+Because it:
+is very easy
+handles trend + seasonality + holidays
+works well on business data
+handles missing values automatically
+
+17. What are the components of Prophet?
+
+Trend
+Seasonality
+Holidays
+Error
+
+18. Can Prophet handle missing values?
+Yes, automatically.
+
+19.What is LSTM?
+LSTM is a neural network that can remember long-term information and is used to process sequential data.
+
+20. What is Backtesting in forecasting?
+Testing the model by predicting past values and comparing them with actuals.
+
+21. What is Overfitting in forecasting?
+Model learns noise instead of pattern.
