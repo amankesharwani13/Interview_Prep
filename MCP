@@ -1,0 +1,221 @@
+✅ TOP MCP (Model Context Protocol) Interview Questions — Simple Answers
+1️⃣ What is MCP?
+
+MCP (Model Context Protocol) is a standard way to connect AI models with tools, databases, APIs, or external systems.
+
+In simple word:
+👉 MCP is a bridge that allows LLMs to talk to external tools safely.
+
+2️⃣ Why do we need MCP?
+
+Without MCP, every company builds their own custom tool calling method.
+MCP gives a standard rule so any model → can use any tool.
+
+3️⃣ Who created MCP?
+
+OpenAI created MCP, and now many companies support it.
+
+4️⃣ How does MCP work?
+
+MCP uses:
+
+Servers → Tools
+
+Clients → LLM chat systems
+
+Messages → JSON format communication
+
+LLM → Client → Server → Tool → Result → Back to LLM
+
+5️⃣ What is an MCP Server?
+
+It is a backend program that exposes tools, like:
+
+Database query tool
+
+Weather API
+
+Local file reader
+
+Email sender
+
+Think of it as:
+👉 “A toolbox the LLM can use.”
+
+6️⃣ What is an MCP Client?
+
+The system where the LLM runs (like ChatGPT, LangChain, LangGraph).
+It requests the tool from the MCP Server.
+
+7️⃣ What is a Tool in MCP?
+
+A function the LLM can call.
+
+Example:
+
+get_weather(city)
+read_file(path)
+generate_id()
+
+8️⃣ What is the benefit of MCP compared to normal tool calling?
+Normal Tool Calling	MCP
+Each framework different	One standard protocol
+Hard to maintain	Easy to reuse tools
+Model-specific	Model-independent
+Security unclear	Built-in permissions
+9️⃣ Is MCP model-agnostic?
+
+YES.
+Any LLM (OpenAI, Anthropic, Google, Meta, etc.) can use MCP.
+
+1️⃣0️⃣ Does MCP run locally?
+
+Yes. MCP servers can run on:
+
+Local machine
+
+Docker
+
+Cloud servers
+
+1️⃣1️⃣ What is a “Resource” in MCP?
+
+A resource is data exposed to the LLM safely.
+
+Example resources:
+
+customer_data.csv
+
+embeddings.db
+
+config.json
+
+Think:
+👉 “Read-only or controlled access data.”
+
+1️⃣2️⃣ What is a “Prompt Template” in MCP?
+
+You can expose templates for LLM, like:
+
+summarize_template: "Summarize the following text: {text}"
+
+1️⃣3️⃣ How does MCP improve security?
+
+It uses:
+
+Permission prompts
+
+Sandboxing
+
+Explicit access control
+
+Scope-limited tools
+
+LLM cannot access system files without permission.
+
+1️⃣4️⃣ What is the message format of MCP?
+
+MCP uses JSON-RPC 2.0 style messages.
+
+Clean, structured, and easy for tools to parse.
+
+1️⃣5️⃣ What’s the difference between MCP and APIs?
+
+API is general-purpose.
+MCP is specifically built for LLM tool usage.
+
+LLMs can provide structured input → MCP translates to exact function call.
+
+1️⃣6️⃣ What is the purpose of list_tools?
+
+It lists all tools exposed by the server.
+
+Example:
+
+["read_file", "write_file", "search_db"]
+
+1️⃣7️⃣ What is call_tool?
+
+The actual execution request from LLM to the MCP server.
+
+1️⃣8️⃣ What is the role of permissions in MCP?
+
+Before tool execution, the system may ask the user:
+
+"Allow the model to access file xyz.txt?"
+
+This improves safety.
+
+1️⃣9️⃣ How is MCP used in LangGraph?
+
+LangGraph supports MCP servers to give agents access to:
+
+Files
+
+RAG vector databases
+
+Web APIs
+
+Custom Python functions
+
+This makes your agent more powerful and safe.
+
+2️⃣0️⃣ What is an example use-case of MCP?
+
+✔ Chatbot reading local files
+✔ AI agent querying database
+✔ LLM filling Excel files
+✔ Code assistant modifying project files
+✔ CRM integration
+✔ Email automation
+
+2️⃣1️⃣ Can MCP connect multiple tools?
+
+Yes.
+You can have one MCP server exposing:
+
+Weather API
+
+SQL database
+
+File system
+
+Custom functions
+
+LLM uses whichever it needs.
+
+2️⃣2️⃣ What languages support MCP servers?
+
+Currently:
+
+Python
+
+Node.js
+
+Rust
+
+Go
+
+And more coming.
+
+2️⃣3️⃣ What is the communication protocol used?
+
+WebSockets or STDIO.
+
+2️⃣4️⃣ Is MCP open source?
+
+Yes. MCP is fully open and free.
+
+2️⃣5️⃣ Why is MCP the future of tool calling?
+
+Because it:
+
+Standardizes everything
+
+Makes AI agents universal
+
+Improves safety
+
+Reduces developer work
+
+Works with any LLM
