@@ -1,0 +1,148 @@
+🎯 Basic Streamlit Interview Questions (Simple Words)
+1️⃣ What is Streamlit?
+
+A Python framework used to build web apps for data science and ML easily.
+
+2️⃣ Why do we use Streamlit?
+
+Because it lets you make dashboards and apps fast without HTML/JS.
+
+3️⃣ How to run a Streamlit app?
+
+By using:
+
+streamlit run app.py
+
+4️⃣ How to display text in Streamlit?
+
+Using:
+
+st.write("Hello")
+st.text("Hello")
+st.title("My App")
+
+5️⃣ How to show a dataframe?
+st.dataframe(df)
+
+6️⃣ How to add a button?
+if st.button("Click me"):
+    st.write("Button clicked")
+
+7️⃣ How to upload a file?
+file = st.file_uploader("Upload CSV", type=["csv"])
+
+8️⃣ How to create input fields?
+name = st.text_input("Enter name")
+age = st.number_input("Enter age")
+
+9️⃣ How to show charts?
+st.line_chart(df)
+st.bar_chart(df)
+
+🔟 Where to store data temporarily?
+
+Use session_state:
+
+st.session_state["key"] = value
+
+🎯 Intermediate Streamlit Questions (Simple Words)
+1️⃣ What is Session State?
+
+A place where Streamlit stores values so they don’t reset on rerun.
+
+2️⃣ Why does Streamlit rerun the script on every interaction?
+
+That's how Streamlit is designed — it re-executes the script when user clicks or updates any widget.
+
+3️⃣ How to avoid rerunning heavy code again and again?
+
+Use caching:
+
+@st.cache_data
+def load_data():
+    ...
+
+4️⃣ Difference between cache_data and cache_resource?
+
+cache_data → stores data output
+
+cache_resource → stores objects like models, DB connections
+
+5️⃣ How to create multiple pages?
+
+By adding files in pages/ folder.
+
+6️⃣ How to hide the Streamlit menu and footer?
+st.markdown("""
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style>
+""", unsafe_allow_html=True)
+
+7️⃣ How to change layout to wide?
+st.set_page_config(layout="wide")
+
+8️⃣ Can Streamlit call APIs?
+
+Yes:
+
+import requests
+response = requests.get("https://api...")
+
+9️⃣ How to run ML models in Streamlit?
+
+Load the model and run prediction when user clicks a button.
+
+🔟 How to create tabs or columns?
+tab1, tab2 = st.tabs(["Tab 1", "Tab 2"])
+col1, col2 = st.columns(2)
+
+🎯 Advanced Streamlit Interview Questions (Simple Words)
+1️⃣ How to deploy Streamlit?
+
+Streamlit Cloud
+
+Render
+
+Azure
+
+AWS
+
+Docker
+
+2️⃣ What is Streamlit Cloud?
+
+Free hosting service for Streamlit apps.
+
+3️⃣ How does Streamlit handle state?
+
+Internally, it stores widget changes in session_state.
+
+4️⃣ What is the difference between Streamlit and Flask?
+Streamlit	Flask
+Used for dashboards & ML apps	Used to build any backend
+No HTML needed	HTML/JS needed
+Faster to build	More flexible
+5️⃣ How to create custom components?
+
+Using Streamlit Components API (React + JS + Python).
+
+6️⃣ How to connect Streamlit with a database?
+
+Using Python libraries (sqlite3, psycopg2, SQLAlchemy).
+
+7️⃣ Does Streamlit support real-time updates?
+
+Yes, using st.experimental_rerun() or WebSocket components.
+
+8️⃣ What is st.sidebar?
+
+A vertical panel for filters, inputs, and navigation.
+
+9️⃣ How to stop Streamlit execution?
+st.stop()
+
+🔟 How to show progress or loading spinner?
+with st.spinner("Loading..."):
+    time.sleep(3)
