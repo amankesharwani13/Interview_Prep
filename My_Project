@@ -1,0 +1,226 @@
+Project name		Predicting Customer Spending with Linear Regression
+Duration		Aug 2025 – Sep 2025
+Description		This project involved analysing customer behaviour data to predict yearly spending based on features such as average session length, time on app, time on website, and length of membership. The project applied Simple and Multiple Linear Regression to understand which factors most influence customer spending and to provide actionable insights for improving mobile app or website engagement. Key focus was on data exploration, model training, evaluation, and interpretation of coefficients to support business decisions.
+Technology Stack		Python, Pandas, NumPy
+Responsibilities		•	Performed data analysis, visualization, and trained linear regression models to predict customer yearly spending. Evaluated model performance, interpreted coefficients for business insights, and documented results for clarity and reproducibility.
+
+
+
+Use multi-linear regression to analyze the relationship of a product's price, advertisement cost, and the product sales number.
+Avg. Session Length
+Time on App
+Time on Website
+Length of Membership
+
+
+
+
+✅ Step-By-Step Project Guide (Beginner Friendly + Professional)
+🔹 Step 1: Install Required Libraries
+
+Open terminal / cmd:
+
+pip install pandas numpy matplotlib seaborn scikit-learn
+
+✅ Step 2: Import Libraries in Python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+Simple Explanation:
+
+Pandas → handling dataset
+
+NumPy → numerical calculations
+
+Matplotlib & Seaborn → graphs
+
+Scikit-learn → machine learning model
+
+Metrics → check model performance
+
+✅ Step 3: Load Your Dataset
+
+If dataset file is customers.csv:
+
+df = pd.read_csv("customers.csv")
+df.head()
+
+Simple Explanation:
+
+Loads the dataset and shows first 5 rows.
+
+✅ Step 4: Explore The Data (EDA)
+df.info()
+df.describe()
+
+Check correlation
+sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
+plt.show()
+
+Simple Explanation:
+
+This step helps you understand:
+
+Which column is related to which
+
+Which features strongly affect yearly spending
+
+✅ Step 5: Visualize Relationships
+sns.pairplot(df)
+plt.show()
+
+Simple Explanation:
+
+Pairplot shows the relation of each feature vs spending.
+
+✅ Step 6: Select Features (X) and Target (y)
+X = df[['Avg. Session Length', 'Time on App', 'Time on Website', 'Length of Membership']]
+y = df['Yearly Amount Spent']
+
+Simple Explanation:
+
+X → input features
+
+y → predicted value (spending)
+
+✅ Step 7: Split Train & Test Data
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42
+)
+
+Simple Explanation:
+
+70% data → train model
+
+30% data → test model
+
+✅ Step 8: Train the Linear Regression Model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+Simple Explanation:
+
+Model learns the relationship between features and spending.
+
+✅ Step 9: Check Model Coefficients
+print("Intercept:", model.intercept_)
+print("Coefficients:", model.coef_)
+
+Simple Explanation:
+
+Coefficients tell how much a feature affects spending.
+Example:
+If Length of Membership coefficient = 35,
+→ Every extra 1 year membership increases spending by ₹35.
+
+✅ Step 10: Predict on Test Set
+y_pred = model.predict(X_test)
+
+✅ Step 11: Evaluate the Model
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+r2 = r2_score(y_test, y_pred)
+
+print("MAE:", mae)
+print("MSE:", mse)
+print("RMSE:", rmse)
+print("R² Score:", r2)
+
+Simple Explanation:
+
+MAE → Average error
+
+MSE → Squared error
+
+RMSE → Root mean squared error
+
+R² → How well model fits the data (1 = perfect)
+
+✅ Step 12: Plot Actual vs Predicted
+plt.scatter(y_test, y_pred)
+plt.xlabel("Actual Spending")
+plt.ylabel("Predicted Spending")
+plt.title("Actual vs Predicted")
+plt.show()
+
+Simple Explanation:
+
+If dots lie near a straight line → model is good.
+
+🎉 Your Project Is Ready!
+
+This is a complete end-to-end machine learning project.
+
+⭐ Full Project Code (Copy–Paste)
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+df = pd.read_csv("customers.csv")
+print(df.head())
+
+# EDA
+print(df.info())
+print(df.describe())
+
+sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
+plt.show()
+
+sns.pairplot(df)
+plt.show()
+
+# Features & Target
+X = df[['Avg. Session Length', 'Time on App', 'Time on Website', 'Length of Membership']]
+y = df['Yearly Amount Spent']
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42
+)
+
+# Train model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Coefficients
+print("Intercept:", model.intercept_)
+print("Coefficients:", model.coef_)
+
+# Predict
+y_pred = model.predict(X_test)
+
+# Evaluation
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+r2 = r2_score(y_test, y_pred)
+
+print("MAE:", mae)
+print("MSE:", mse)
+print("RMSE:", rmse)
+print("R² Score:", r2)
+
+# Plot
+plt.scatter(y_test, y_pred)
+plt.xlabel("Actual Spending")
+plt.ylabel("Predicted Spending")
+plt.title("Actual vs Predicted")
+plt.show()
+
+
+
+
+
+✅ 6-Line Project Summary (Perfect for Interviews)
+
+"I built a Customer Spending Prediction model using Multiple Linear Regression to understand how user behavior impacts yearly spending. I first performed EDA using Pandas, Seaborn, and correlation heatmaps to identify which features—like Avg Session Length, Time on App, Time on Website, and Length of Membership—are most related to spending. I then prepared the data and trained a LinearRegression model from scikit-learn using a train-test split. After training, I evaluated the model using R², MAE, MSE, and RMSE to check accuracy. I also analyzed the model coefficients to understand the business impact of each feature, where Length of Membership came out strongest. Finally, I plotted Actual vs Predicted values to visually validate the model and generated insights to help improve app engagement and customer retention."
