@@ -1,0 +1,325 @@
+🎯 1. What is Python?
+
+Python is a programming language used for web apps, ML, data science, automation, and more.
+
+🎯 2. What are variables?
+
+A variable stores a value.
+
+Example:
+
+x = 10
+name = "Aman"
+
+🎯 3. What is a list?
+
+A list stores multiple values.
+
+Example:
+
+fruits = ["apple", "banana", "mango"]
+
+🎯 4. What is a tuple?
+
+Tuple is like a list but cannot be changed.
+
+Example:
+
+colors = ("red", "blue", "green")
+
+🎯 5. What is a dictionary?
+
+Stores data in key-value pairs.
+
+Example:
+
+student = {"name": "Aman", "age": 21}
+
+🎯 6. Difference between list and tuple?
+List	Tuple
+Changeable	Not changeable
+[]	()
+🎯 7. What is a function?
+
+A block of code that performs a task.
+
+Example:
+
+def add(a, b):
+    return a + b
+
+🎯 **8. What is *args and kwargs?
+
+Used to pass many arguments.
+
+Example:
+
+def show(*args):
+    print(args)
+
+show(1,2,3)
+
+🎯 9. What is OOP?
+
+Object-Oriented Programming → uses classes and objects.
+
+🎯 10. What is a class?
+
+Blueprint for creating objects.
+
+Example:
+
+class Car:
+    pass
+
+🎯 11. What is an object?
+
+Object = instance of a class.
+
+Example:
+
+c = Car()
+
+🎯 12. What is inheritance?
+
+One class taking features of another.
+
+Example:
+
+class A:
+    pass
+
+class B(A):
+    pass
+
+🎯 13. What is polymorphism?
+
+Same function name, different behavior.
+
+Example:
+
+print(len("hello"))
+print(len([1,2,3]))
+
+🎯 14. What is encapsulation?
+
+Hiding data using private variables.
+
+Example:
+
+class A:
+    __x = 10
+
+🎯 15. What is abstraction?
+
+Hiding complex code from the user.
+
+🎯 16. What is a constructor?
+
+Special function that runs automatically.
+
+Example:
+
+class A:
+    def __init__(self):
+        print("hello")
+
+🎯 17. What is lambda function?
+
+Small one-line function.
+
+Example:
+
+add = lambda x,y: x+y
+
+🎯 18. What is list comprehension?
+
+Short way to create lists.
+
+Example:
+
+nums = [x*2 for x in range(5)]
+
+🎯 19. What is an exception?
+
+Error in program.
+
+🎯 20. How to handle exceptions?
+
+Using try–except.
+
+Example:
+
+try:
+    print(10/0)
+except:
+    print("Error")
+
+🎯 21. What are modules?
+
+Python file you can import.
+
+Example:
+
+import math
+
+🎯 22. What are packages?
+
+Folder containing multiple modules.
+
+🎯 23. What is pip?
+
+Python package installer.
+
+🎯 24. What is virtual environment?
+
+Separate Python environment for each project.
+
+🎯 25. What is self?
+
+Refers to the current object inside a class.
+
+🎯 26. Difference between == and is?
+==	is
+checks value	checks memory
+
+Example:
+
+a = [1,2]
+b = [1,2]
+print(a==b) # True
+print(a is b) # False
+
+🎯 27. What is mutability?
+
+If a value can be changed.
+
+List → mutable
+
+Tuple → immutable
+
+🎯 28. What is a decorator?
+
+Function that modifies another function.
+
+Example:
+def deco(func):
+    def wrap():
+        print("hello")
+        func()
+    return wrap
+
+@deco
+def say():
+    print("world")
+
+say()
+
+
+🎯 29. What is a generator?
+
+Function that returns values one by one using yield.
+
+Example:
+
+def gen():
+    yield 1
+    yield 2
+
+🎯 30. What is yield?
+
+Used in generators to pause and return a value.
+
+🎯 31. What is recursion?
+
+A function calling itself.
+
+Example:
+
+def fact(n):
+    return 1 if n==0 else n*fact(n-1)
+
+🎯 32. What is the GIL?
+
+Global Interpreter Lock → allows Python to run one thread at a time.
+
+🎯 33. Difference between thread and process?
+
+Thread = lightweight, inside one process
+Process = independent program
+
+🎯 34. What is multithreading?
+
+Running multiple threads at same time.
+
+🎯 35. What is multiprocessing?
+
+Running programs on multiple CPU cores.
+
+🎯 36. What is a decorator used for?
+
+Logging, authentication, caching.
+
+🎯 37. What is map, filter, reduce?
+
+map → apply function to each item
+filter → keep only items that pass condition
+reduce → combine items into one result
+
+Example:
+
+list(map(lambda x:x*2, [1,2,3]))
+
+🎯 38. What is a shallow copy vs deep copy?
+
+Shallow copy → copies only reference
+Deep copy → copies all nested objects
+
+Example:
+
+import copy
+copy.copy()
+copy.deepcopy()
+
+🎯 39. How memory management works in Python?
+
+Python uses garbage collector to delete unused objects.
+
+🎯 40. What is __str__ and __repr__?
+
+Used to print object nicely.
+
+🎯 41. What are magic methods?
+
+Double underscore methods like __init__, __add__.
+
+🎯 42. What is a context manager? (with)
+
+Manages resources.
+
+Example:
+
+with open("file.txt") as f:
+    data = f.read()
+
+🎯 43. What is enumerate()?
+
+Gives index + value.
+
+Example:
+
+for i, v in enumerate(["a","b"]):
+    print(i, v)
+
+🎯 44. What is zip()?
+
+Combines lists.
+
+Example:
+
+for a, b in zip([1,2],[3,4]):
+    print(a, b)
+
+🎯 45. What are Python data types?
+
+int, float, str, bool, list, tuple, dict, set
