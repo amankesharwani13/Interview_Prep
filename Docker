@@ -322,3 +322,28 @@ Node API
 React + Backend
 
 ML model API
+
+
+
+
+
+Some command help in deploying your docker container to Microsoft Azure:
+nerdctl build --tag streamlitapp_13_nov .
+nerdctl images
+nerdctl run -p 8001:8000 streamlitapp_13_nov:latest
+docker login captonenagarro.azurecr.io
+username of azure - captonenagarro
+password1 of azure - 
+password2 of azure - 
+my azure container registry name: captonenagarro.azurecr.io
+nerdctl tag streamlitapp_13_nov captonenagarro.azurecr.io/streamlitapp_13_nov:latest
+push image to it - nerdctl push captonenagarro.azurecr.io/streamlitapp_13_nov:latest
+
+
+
+nerdctl ps -a        --- show all container
+nerdctl rm 893092494365     -- delete a specific container
+nerdctl rmi assignment6      -- delete image
+nerdctl rm -f $(nerdctl ps -a -q)     --- delte all container
+nerdctl rmi -f $(nerdctl images -q)    --- delete all images
+
