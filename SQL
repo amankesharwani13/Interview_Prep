@@ -1,0 +1,140 @@
+⭐ SQL Date Functions (with Examples)
+1. CURRENT_DATE / CURDATE()
+
+Returns today’s date.
+
+SELECT CURDATE();  
+-- 2025-12-12
+
+2. CURRENT_TIME / CURTIME()
+
+Returns current time.
+
+SELECT CURTIME();  
+-- 11:45:32
+
+3. NOW()
+
+Returns current date + time.
+
+SELECT NOW();  
+-- 2025-12-12 11:45:32
+
+4. YEAR(date)
+
+Extracts the year.
+
+SELECT YEAR('2025-08-10');  
+-- 2025
+
+5. MONTH(date)
+
+Extracts month number.
+
+SELECT MONTH('2025-08-10');  
+-- 8
+
+6. DAY(date) / DAYOFMONTH(date)
+
+Extracts day of month.
+
+SELECT DAY('2025-08-10');  
+-- 10
+
+7. HOUR(timestamp)
+
+Extracts hour.
+
+SELECT HOUR('2025-08-10 14:30:00');  
+-- 14
+
+8. MINUTE(timestamp)
+
+Extracts minute.
+
+SELECT MINUTE('2025-08-10 14:30:00');  
+-- 30
+
+9. SECOND(timestamp)
+
+Extracts second.
+
+SELECT SECOND('2025-08-10 14:30:00');  
+-- 00
+
+10. DAYNAME(date)
+
+Returns day of week name.
+
+SELECT DAYNAME('2025-12-12');  
+-- Friday
+
+11. MONTHNAME(date)
+
+Returns month name.
+
+SELECT MONTHNAME('2025-12-12');  
+-- December
+
+12. DAYOFWEEK(date)
+
+Returns day number (1=Sunday).
+
+SELECT DAYOFWEEK('2025-12-12');  
+-- 6
+
+13. DATE_ADD(date, INTERVAL x unit)
+
+Adds days/months/years, etc.
+
+SELECT DATE_ADD('2025-12-12', INTERVAL 10 DAY);  
+-- 2025-12-22
+
+14. DATE_SUB(date, INTERVAL x unit)
+
+Subtracts days/months/years.
+
+SELECT DATE_SUB('2025-12-12', INTERVAL 3 MONTH);
+-- 2025-09-12
+
+15. DATEDIFF(date1, date2)
+
+Returns difference in days.
+
+SELECT DATEDIFF('2025-12-12', '2025-12-01');
+-- 11
+
+16. TIMESTAMPDIFF(unit, start, end)
+
+Difference in any unit.
+
+SELECT TIMESTAMPDIFF(HOUR, '2025-12-11 10:00:00', '2025-12-12 10:00:00');
+-- 24
+
+17. STR_TO_DATE(string, format)
+
+Convert string to date.
+
+SELECT STR_TO_DATE('12-12-2025', '%d-%m-%Y');
+-- 2025-12-12
+
+18. DATE_FORMAT(date, format)
+
+Convert date to formatted output.
+
+SELECT DATE_FORMAT('2025-12-12', '%d/%m/%Y');
+-- 12/12/2025
+
+19. LAST_DAY(date)
+
+Returns last day of month.
+
+SELECT LAST_DAY('2025-02-15');
+-- 2025-02-28
+
+20. EXTRACT(unit FROM date)
+
+Extracts parts of date.
+
+SELECT EXTRACT(YEAR FROM '2025-12-12');
+-- 2025
